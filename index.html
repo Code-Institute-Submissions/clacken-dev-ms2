@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/sandstone/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <title>TravelMate</title>
+</head>
+
+<body>
+    <header>
+        <h2 id="logo" class="alert alert-primary" role="alert">TravelMate</h2>
+    </header>
+    <h4 class="text-center">Find your next holiday destination using our helpful search features below.</h4>
+    <!--Buttons for choosing locations-->
+    <div id="search-buttons-container">
+        <span>
+            <button class="btn btn-primary location-button" id="france">France</button>
+            <button class="btn btn-primary location-button" id="italy">Italy</button>
+            <button class="btn btn-primary location-button" id="spain">Spain</button>
+            <button class="btn btn-primary location-button" id="germany">Germany</button>
+            <button class="btn btn-primary location-button" id="england">England</button>
+        </span>
+    </div>
+    <!--Container for embedded Google Maps-->
+    <div id="map"></div>
+
+    <div>
+        <h4 class="text-center">I'm in the div under the map</h4>
+    </div>
+
+
+    <div class="input-group mb-3">
+        <input id="address" type="text" class="form-control" placeholder="Please enter a location" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button id="submit" class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+
+    </div>
+    <div id="second-map"></div>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script src="assets/js/script.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=initMap&libraries=&v=weekly"
+        async></script>
+<footer>
+    <h3 class="alert alert-dark" role="alert">ClackenDev 2021</h3>
+</footer>
+</body>
+
+</html>
