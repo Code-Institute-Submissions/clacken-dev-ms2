@@ -53,17 +53,22 @@ $("#england").click(function(){
 
 function initMap() {
   const map = new google.maps.Map(document.getElementById("second-map"), {
-    zoom: 8,
+    zoom: 7,
     center: { lat: -34.397, lng: 150.644 },
   });
   const geocoder = new google.maps.Geocoder();
+  $("#submit").click(function(){
+      geocodeAddress(geocoder,map);
+  });
+  /*
   document.getElementById("submit").addEventListener("click", () => {
     geocodeAddress(geocoder, map);
   });
+  */
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  const address = document.getElementById("address").value;
+  const address = $("#address").val(); //document.getElementById("address").value;
   geocoder.geocode({ address: address }, (results, status) => {
     if (status === "OK") {
       resultsMap.setCenter(results[0].geometry.location);
