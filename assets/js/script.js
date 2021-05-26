@@ -68,12 +68,9 @@ function initMap() {
     console.log("The initMap function is finished executing");
 }
 
-$("#restaurants").click(function () {
+function findRestaurants(location) {
 
-
-    var position = france;
-
-
+    var position = location;
 
     var request = {
         location: position,
@@ -88,11 +85,12 @@ $("#restaurants").click(function () {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
+                console.log("Here are the restaurants near your chosen destination. MMMM smells tasty!");
                 console.log(results[i].name);
             }
         }
     }
-});
+};
 
 $("#france").click(function () {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -181,6 +179,7 @@ function onPlaceChanged() {
         console.log(place.formatted_address);
         console.log("The ID of the requested place is " + place.place_id);
         geocodeAddress(map, place.formatted_address);
+    
         
 
         // *** test to see if geometry location can be retrieved using Places library ***
@@ -236,7 +235,18 @@ function geocodePlaceId(placeId) {
     }, (results, status) => {
         if (status === "OK") {
             if (results[0]) {
-                console.log("the coordinates for the provided place id are " + results[0].geometry.location);
+                console.log(results[0].geometry);
+                console.log("the coordinates (lat) for the provided place id are " + results[0].geometry.location);
+                
+                var locationCoordinates = results[0].geometry.location;
+                // formattedLocationCoordinates = locationCoordinates.split(',');
+                console.log(typeof results[0].geometry.location);
+
+                for (var item of locationCoordinates){
+                    console.log(item);
+                }
+
+                //findRestaurants(results[0].geometry.location);
             }
         } else {
             console.log("Geocoder failed due to: " + status);

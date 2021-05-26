@@ -23,8 +23,36 @@
 
 <body>
     <header>
-        <h2 id="logo" class="alert alert-primary" role="alert">TravelMate</h2>
+        <div class="container-fluid" id="hero-image">
+            <a href="index.html">
+                <h2 id="logo">TravelMate</h2>
+            </a>
+            <!--Experimental bootstrap navbar going in here now-->
+            <div class="pos-f-t d-md-none">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="" id="navbar-content">
+                        <h4 class="text-white">Home</h4>
+                        <h4 class="text-white">Explore</h4>
+                        <h4 class="text-white">Contact Us</h4>
+                        
+                    </div>
+                </div>
+                <nav class="navbar navbar-dark">
+                    <button id ="hamburger-button" class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" id="hamburger-icon"></span>
+                    </button>
+                </nav>
+            </div>
+            <div class="jumbotron" id="jumbotron">
+                <h1 class="text-center">At TravelMate we're always ready for your next holiday. Are you?</h1>
+            </div>
+
+        </div>
+
     </header>
+
     <h4 class="text-center">Find your next holiday destination using our helpful search features below.</h4>
     <!--Buttons for choosing locations-->
     <div id="search-buttons-container">
@@ -50,7 +78,7 @@
 
     </div>
     <div id="map"></div>
-    
+
     <!-- Experiment with the Moovit travel app-->
     <div class="container-fluid" id="moovit-travel">
         <h3 class="text-center">Need transport information for your chosen location?</h3>
@@ -71,25 +99,26 @@
         </div>
     </div>
     <!-- Moovit travel app end -->
-    <div>
-    <button class="btn btn-outline-secondary text-center mx-auto" id="ajax-button">Click me to get data</button>
-    </div>
 
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script
         src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script src="assets/js/script.js"></script>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=initAutoComplete&libraries=&v=weekly&libraries=places"
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=initAutoComplete&libraries=&v=weekly&libraries=places"
         async></script>
-        
-        <script></script>
+
+    <script></script>
     <footer>
-        <h3 class="alert alert-dark" role="alert">ClackenDev 2021</h3>
+        <div class="container-fluid" id="footer-div">
+        <p>ClackenDev 2021</p>
+        </div>
     </footer>
 </body>
 
