@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/sandstone/bootstrap.min.css">
@@ -29,41 +34,63 @@
             <button class="btn btn-primary location-button" id="spain">Spain</button>
             <button class="btn btn-primary location-button" id="germany">Germany</button>
             <button class="btn btn-primary location-button" id="england">England</button>
+            <button class="btn btn-primary location-button" id="restaurants">Restaurants</button>
         </span>
     </div>
     <!--Container for embedded Google Maps-->
-    <div id="map"></div>
-
-    <div>
-        <h4 class="text-center">I'm in the div under the map</h4>
-    </div>
-
 
     <div class="input-group mb-3">
-        <input id="address" type="text" class="form-control" placeholder="Please enter a location" aria-label="Recipient's username"
-            aria-describedby="basic-addon2">
+        <input id="address" type="text" class="form-control" placeholder="Please enter a location"
+            aria-label="Recipient's username" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button id="submit" class="btn btn-outline-secondary" type="submit">Search</button>
         </div>
+        <!--Div for holding information from the autocomplete function -->
+        <div id="details"></div>
 
     </div>
-    <div id="second-map"></div>
+    <div id="map"></div>
+    
+    <!-- Experiment with the Moovit travel app-->
+    <div class="container-fluid" id="moovit-travel">
+        <h3 class="text-center">Need transport information for your chosen location?</h3>
+        <!--
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://widgets.moovit.com/wtp/en";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'moovit-jsw'));
+        </script>
+        -->
+        <div class="mv-wtp" data-metro="121" data-lang="en" data-from="Times Sq"
+            data-from-lat-long="40.75581_-73.986389" data-to="Central Park" data-to-lat-long="40.78392_-73.96584"
+            id="moovit-interface">
+        </div>
     </div>
+    <!-- Moovit travel app end -->
+    <div>
+    <button class="btn btn-outline-secondary text-center mx-auto" id="ajax-button">Click me to get data</button>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script
         src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script src="assets/js/script.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=initMap&libraries=&v=weekly"
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=initAutoComplete&libraries=&v=weekly&libraries=places"
         async></script>
-<footer>
-    <h3 class="alert alert-dark" role="alert">ClackenDev 2021</h3>
-</footer>
+        
+        <script></script>
+    <footer>
+        <h3 class="alert alert-dark" role="alert">ClackenDev 2021</h3>
+    </footer>
 </body>
 
 </html>
