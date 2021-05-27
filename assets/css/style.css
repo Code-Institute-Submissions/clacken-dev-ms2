@@ -49,6 +49,19 @@ body{
     text-align: right;
 }
 
+.menu-tab{
+    padding-left: 15px;
+}
+
+.menu-tab > a{
+    text-decoration: none;
+    color: grey;
+}
+
+.home-tab a{
+    color: grey;
+}
+
 #footer-div{
     padding:0;
     margin:0;

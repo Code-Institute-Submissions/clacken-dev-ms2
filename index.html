@@ -34,11 +34,11 @@
                         <h4 class="text-white">Home</h4>
                         <h4 class="text-white">Explore</h4>
                         <h4 class="text-white">Contact Us</h4>
-                        
+
                     </div>
                 </div>
                 <nav class="navbar navbar-dark">
-                    <button id ="hamburger-button" class="navbar-toggler" type="button" data-toggle="collapse"
+                    <button id="hamburger-button" class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon" id="hamburger-icon"></span>
@@ -78,6 +78,41 @@
 
     </div>
     <div id="map"></div>
+    <!-- A Bootstrap navbar with tabs above to toggle through information-->
+    <div id="location-information" class="container">
+        <h3>Here is some information about the location you've selected. Nice!</h3>
+        <ul class="nav nav-tabs">
+            <li class="active home-tab"><a data-toggle="tab" href="#home">Home</a></li>
+
+            <li class="menu-tab"><a data-toggle="tab" href="#churches">Churches</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#airports">Airports</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#hospitals">Hospitals</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#eating">Dining</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <h3>HOME</h3>
+                <p>Some content.</p>
+            </div>
+            <div id="churches" class="tab-pane fade">
+                <h3>Churches</h3>
+                <p>Some content in menu 2.</p>
+            </div>
+            <div id="airports" class="tab-pane fade">
+                <h3>Airports</h3>
+                <p>Some content in menu 2.</p>
+            </div>
+            <div id="hospitals" class="tab-pane fade">
+                <h3>Hospitals</h3>
+                <p>Some content in menu 2.</p>
+            </div>
+            <div id="eating" class="tab-pane fade">
+                <h3>Restaurants</h3>
+                <div id="dining-info"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Experiment with the Moovit travel app-->
     <div class="container-fluid" id="moovit-travel">
@@ -117,7 +152,7 @@
     <script></script>
     <footer>
         <div class="container-fluid" id="footer-div">
-        <p>ClackenDev 2021</p>
+            <p>ClackenDev 2021</p>
         </div>
     </footer>
 </body>

@@ -37,6 +37,7 @@ function initialize() {
         zoom: 15
     });
 
+
     var request = {
         location: pyrmont,
         radius: '500',
@@ -68,15 +69,31 @@ function initMap() {
     console.log("The initMap function is finished executing");
 }
 
-function findRestaurants(location) {
+function findRestaurants(latitude, longitude) {
 
-    var position = location;
+    var position = {
+        lat: latitude,
+        lng: longitude
+    };
 
     var request = {
         location: position,
         radius: '500',
-        type: ['restaurant']
+        type: ['restaurant', 'point_of_interest']
     }
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 7,
+        center: {
+            lat: latitude,
+            lng: longitude
+        },
+    });
+
+    new google.maps.Marker({
+                map: map,
+                position: {lat: latitude, lng: longitude},
+            });
 
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
@@ -85,8 +102,9 @@ function findRestaurants(location) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
-                console.log("Here are the restaurants near your chosen destination. MMMM smells tasty!");
+                
                 console.log(results[i].name);
+                document.getElementById("dining-info").innerHTML += "<p>" + results[i].name + "</p>";
             }
         }
     }
@@ -157,7 +175,7 @@ function initAutoComplete() {
 }
 
 function onPlaceChanged() {
-    console.log("place change function called");
+
     var place = autocomplete.getPlace();
 
     if (!place.geometry) {
@@ -176,11 +194,16 @@ function onPlaceChanged() {
             },
         });
 
+        var locationLatitude = place.geometry.location.lat();
+        var locationLongitude = place.geometry.location.lng();
+        findRestaurants(locationLatitude, locationLongitude);
+
+        console.log("The latitude of " + place.name + " is " + locationLatitude + ". The longitude is " + locationLongitude);
         console.log(place.formatted_address);
-        console.log("The ID of the requested place is " + place.place_id);
-        geocodeAddress(map, place.formatted_address);
-    
-        
+
+        //geocodeAddress(map, place.formatted_address);
+
+
 
         // *** test to see if geometry location can be retrieved using Places library ***
         // var currentPlace = google.maps.places.PlaceGeometry();
@@ -212,7 +235,7 @@ function geocodeAddress(resultsMap, address) {
             console.log(results[0]);
             //console.log("The id of this location is " + results[0].place_id);
             geocodePlaceId(results[0].place_id);
-            
+
             new google.maps.Marker({
                 map: resultsMap,
                 position: results[0].geometry.location,
@@ -237,15 +260,15 @@ function geocodePlaceId(placeId) {
             if (results[0]) {
                 console.log(results[0].geometry);
                 console.log("the coordinates (lat) for the provided place id are " + results[0].geometry.location);
-                
+
                 var locationCoordinates = results[0].geometry.location;
-                // formattedLocationCoordinates = locationCoordinates.split(',');
+                // formattddLocationCoordinates = locationCoordinates.split(',');
                 console.log(typeof results[0].geometry.location);
 
-                for (var item of locationCoordinates){
-                    console.log(item);
-                }
-
+                //for (var item of locationCoordinates){
+                //    console.log(item);
+                //}
+                console.log(results[0].geometry.location.lat);
                 //findRestaurants(results[0].geometry.location);
             }
         } else {
