@@ -24,7 +24,8 @@
 <body>
     <header>
         <div class="container-fluid" id="hero-image">
-            <a href="index.html">
+            <a href="explore.html">
+                <!-- ******** Temporarily set to explore page.   -->
                 <h2 id="logo">TravelMate</h2>
             </a>
             <!--Experimental bootstrap navbar going in here now-->
@@ -49,7 +50,18 @@
                 <h1 class="text-center">At TravelMate we're always ready for your next holiday. Are you?</h1>
             </div>
 
+        <div class="input-group mb-3 container">
+        <input id="address" type="text" class="form-control" placeholder="Please enter a location"
+            aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <!--
+        <div class="input-group-append">
+            <button id="submit" class="btn btn-outline-secondary" type="submit">Search</button>
         </div>
+        -->
+
+        </div>
+
+        
 
     </header>
 
@@ -67,12 +79,7 @@
     </div>
     <!--Container for embedded Google Maps-->
 
-    <div class="input-group mb-3">
-        <input id="address" type="text" class="form-control" placeholder="Please enter a location"
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button id="submit" class="btn btn-outline-secondary" type="submit">Search</button>
-        </div>
+    
         <!--Div for holding information from the autocomplete function -->
         <div id="details"></div>
 
@@ -85,8 +92,8 @@
             <li class="active home-tab"><a data-toggle="tab" href="#home">Home</a></li>
 
             <li class="menu-tab"><a data-toggle="tab" href="#churches">Churches</a></li>
-            <li class="menu-tab"><a data-toggle="tab" href="#airports">Airports</a></li>
-            <li class="menu-tab"><a data-toggle="tab" href="#hospitals">Hospitals</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#bars">Bars & Pubs</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#poi">Points of Interest</a></li>
             <li class="menu-tab"><a data-toggle="tab" href="#eating">Dining</a></li>
         </ul>
 
@@ -97,15 +104,15 @@
             </div>
             <div id="churches" class="tab-pane fade">
                 <h3>Churches</h3>
-                <p>Some content in menu 2.</p>
+                <div id="churches-info"></div>
             </div>
-            <div id="airports" class="tab-pane fade">
-                <h3>Airports</h3>
-                <p>Some content in menu 2.</p>
+            <div id="bars" class="tab-pane fade">
+                <h3>Bars &Pubs</h3>
+                <div id="bars-info"></div>
             </div>
-            <div id="hospitals" class="tab-pane fade">
-                <h3>Hospitals</h3>
-                <p>Some content in menu 2.</p>
+            <div id="poi" class="tab-pane fade">
+                <h3>Points of Interest</h3>
+                <div id="poi-info"></div>
             </div>
             <div id="eating" class="tab-pane fade">
                 <h3>Restaurants</h3>

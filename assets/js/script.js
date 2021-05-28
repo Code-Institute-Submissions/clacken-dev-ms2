@@ -41,7 +41,7 @@ function initialize() {
     var request = {
         location: pyrmont,
         radius: '500',
-        type: ['restaurant']
+        type: ['church']
     };
 
     service = new google.maps.places.PlacesService(map);
@@ -76,10 +76,28 @@ function findRestaurants(latitude, longitude) {
         lng: longitude
     };
 
-    var request = {
+    var restaurant = {
         location: position,
         radius: '500',
-        type: ['restaurant', 'point_of_interest']
+        type: ['restaurant']
+    }
+
+    var churches = {
+        location: position,
+        radius: '500',
+        type: ['church']
+    }
+
+    var bars = {
+        location: position,
+        radius: '500',
+        type: ['bar']
+    }
+
+    var poi = {
+        location: position,
+        radius: '500',
+        type: ['point_of_interest']
     }
 
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -96,15 +114,59 @@ function findRestaurants(latitude, longitude) {
             });
 
     service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
+    service.nearbySearch(restaurant, callback);
+    service.nearbySearch(churches, churchSearch);
+    service.nearbySearch(bars, barSearch);
+    service.nearbySearch(poi, poiSearch);
 
     function callback(results, status) {
+        document.getElementById("dining-info").innerHTML = "";
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
                 
                 console.log(results[i].name);
-                document.getElementById("dining-info").innerHTML += "<p>" + results[i].name + "</p>";
+                
+                document.getElementById("dining-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
+            }
+        }
+    }
+
+    function churchSearch(results, status) {
+        document.getElementById("churches-info").innerHTML = "";
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                
+                console.log(results[i].name);
+                
+                document.getElementById("churches-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
+            }
+        }
+    }
+
+    function barSearch(results, status) {
+        document.getElementById("bars-info").innerHTML = "";
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                
+                console.log(results[i].name);
+                
+                document.getElementById("bars-info").innerHTML += "<span class='information-item'>" + results[i].name + "</div>";
+            }
+        }
+    }
+
+    function poiSearch(results, status) {
+        document.getElementById("poi-info").innerHTML = "";
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                
+                console.log(results[i].name);
+                
+                document.getElementById("poi-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
             }
         }
     }
