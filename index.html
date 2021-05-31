@@ -13,7 +13,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/sandstone/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -23,49 +22,59 @@
 
 <body>
     <header>
+
+
         <div class="container-fluid" id="hero-image">
-            <a href="explore.html">
-                <!-- ******** Temporarily set to explore page.   -->
-                <h2 id="logo">TravelMate</h2>
-            </a>
-            <!--Experimental bootstrap navbar going in here now-->
-            <div class="pos-f-t d-md-none">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="" id="navbar-content">
-                        <h4 class="text-white">Home</h4>
-                        <h4 class="text-white">Explore</h4>
-                        <h4 class="text-white">Contact Us</h4>
 
-                    </div>
-                </div>
-                <nav class="navbar navbar-dark">
-                    <button id="hamburger-button" class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon" id="hamburger-icon"></span>
+
+            <div id="hero-overlay" class="text-center">
+
+                <!-- Navbar adapted for use from Bootstrap navbar documentation  -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="index.html">TravelMate</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
+
+                    <div class="collapse navbar-collapse" id="navbarToggler">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="explore.html">Explore</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Transport</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
-            </div>
-            <div class="jumbotron" id="jumbotron">
-                <h1 class="text-center">At TravelMate we're always ready for your next holiday. Are you?</h1>
+                <!-- end of navbar -->
+
+                <div id="call-to-action-components">
+                    <h1 class="text-center d-block" id="call-to-action">At TravelMate we're always ready for your next
+                        holiday. Are
+                        you?</h1>
+                    <a class="btn btn-outline-success" href="#search-destination" role="button" id="call-to-action-button">Explore Destinations!</a>
+                </div>
             </div>
 
+        </div>
+        <!-- Search box for searching travel destination -->
         <div class="input-group mb-3 container">
-        <input id="address" type="text" class="form-control" placeholder="Please enter a location"
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <!--
-        <div class="input-group-append">
-            <button id="submit" class="btn btn-outline-secondary" type="submit">Search</button>
+            <input id="address" type="text" class="form-control" placeholder="Please enter a location"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
         </div>
-        -->
-
-        </div>
-
-        
 
     </header>
 
-    <h4 class="text-center">Find your next holiday destination using our helpful search features below.</h4>
+    <h4 class="text-center" id="search-destination">Find your next holiday destination using our helpful search features below.</h4>
     <!--Buttons for choosing locations-->
     <div id="search-buttons-container">
         <span>
@@ -79,29 +88,25 @@
     </div>
     <!--Container for embedded Google Maps-->
 
-    
-        <!--Div for holding information from the autocomplete function -->
-        <div id="details"></div>
 
-    </div>
-    <div id="map"></div>
+    <!--Div for holding information from the autocomplete function -->
+    <div id="details"></div>
+
+    <!-- </div> -->
+    <div id="map" class="container"></div>
     <!-- A Bootstrap navbar with tabs above to toggle through information-->
-    <div id="location-information" class="container">
-        <h3>Here is some information about the location you've selected. Nice!</h3>
+    <div id="location-information" class="container-fluid text-center">
+        <h3>Here is some information about the location you've selected.</h3>
         <ul class="nav nav-tabs">
             <li class="active home-tab"><a data-toggle="tab" href="#home">Home</a></li>
 
             <li class="menu-tab"><a data-toggle="tab" href="#churches">Churches</a></li>
             <li class="menu-tab"><a data-toggle="tab" href="#bars">Bars & Pubs</a></li>
             <li class="menu-tab"><a data-toggle="tab" href="#poi">Points of Interest</a></li>
-            <li class="menu-tab"><a data-toggle="tab" href="#eating">Dining</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#eating">Restaurants</a></li>
         </ul>
 
         <div class="tab-content">
-            <div id="home" class="tab-pane fade in active">
-                <h3>HOME</h3>
-                <p>Some content.</p>
-            </div>
             <div id="churches" class="tab-pane fade">
                 <h3>Churches</h3>
                 <div id="churches-info"></div>
@@ -120,27 +125,11 @@
             </div>
         </div>
     </div>
-
-    <!-- Experiment with the Moovit travel app-->
-    <div class="container-fluid" id="moovit-travel">
-        <h3 class="text-center">Need transport information for your chosen location?</h3>
-        <!--
-        <script>
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://widgets.moovit.com/wtp/en";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'moovit-jsw'));
-        </script>
-        -->
-        <div class="mv-wtp" data-metro="121" data-lang="en" data-from="Times Sq"
-            data-from-lat-long="40.75581_-73.986389" data-to="Central Park" data-to-lat-long="40.78392_-73.96584"
-            id="moovit-interface">
-        </div>
+    <div id="location-photos" class="text-center">
+        <h3>Location photos beneath this section</h3>
     </div>
-    <!-- Moovit travel app end -->
+
+   
 
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"

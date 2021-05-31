@@ -24,40 +24,6 @@ const england = {
     lng: 2.4333
 };
 
-//This is the start of the places test 
-var map;
-var service;
-var infowindow;
-
-function initialize() {
-    var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
-
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: pyrmont,
-        zoom: 15
-    });
-
-
-    var request = {
-        location: pyrmont,
-        radius: '500',
-        type: ['church']
-    };
-
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
-}
-
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-            console.log(results[i].name);
-        }
-    }
-}
-
-//This is the end of the places test
-
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: {
@@ -78,25 +44,25 @@ function findRestaurants(latitude, longitude) {
 
     var restaurant = {
         location: position,
-        radius: '500',
+        radius: '1000',
         type: ['restaurant']
     }
 
     var churches = {
         location: position,
-        radius: '500',
+        radius: '1000',
         type: ['church']
     }
 
     var bars = {
         location: position,
-        radius: '500',
+        radius: '1000',
         type: ['bar']
     }
 
     var poi = {
         location: position,
-        radius: '500',
+        radius: '5000',
         type: ['point_of_interest']
     }
 
@@ -127,10 +93,11 @@ function findRestaurants(latitude, longitude) {
                 
                 console.log(results[i].name);
                 
+                
                 document.getElementById("dining-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
             }
         }
-    }
+}
 
     function churchSearch(results, status) {
         document.getElementById("churches-info").innerHTML = "";
@@ -139,6 +106,8 @@ function findRestaurants(latitude, longitude) {
                 //createMarker(results[i]);
                 
                 console.log(results[i].name);
+
+               
                 
                 document.getElementById("churches-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
             }
@@ -171,6 +140,7 @@ function findRestaurants(latitude, longitude) {
         }
     }
 };
+
 
 $("#france").click(function () {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -206,19 +176,6 @@ $("#england").click(function () {
         zoom: 8,
     });
 });
-
-
-
-
-
-//Moovit transport app initialise function
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://widgets.moovit.com/wtp/en";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'moovit-jsw'));
 
 //Google places autocomplete 
 
