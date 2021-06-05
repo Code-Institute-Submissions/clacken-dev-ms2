@@ -12,7 +12,7 @@
              lat: position.coords.latitude,
              lng: position.coords.longitude
          },
-         zoom: 10,
+         zoom: 12,
      });
 
      new google.maps.Marker({
@@ -24,32 +24,16 @@
      });
 
      findNearby(position.coords.latitude, position.coords.longitude);
-     addMoovit(position.coords.latitude, position.coords.longitude);
  }
-
-
-
- function addMoovit(lat, long) {
-     var latLong = String(lat) + "," + String(long);
-     console.log(latLong);
-
-     $("#moovit-travel").html(
-         "<h3>This is from the JQuery function</h3>"
-         `<div class="mv-wtp" data-metro="121" data-lang="en" data-from=""
-           data-from-lat-long=${latLong} data-to="" data-to-lat-long=""
-           id="moovit-interface">
-       </div>`
-     )
 
      //Moovit transport app initialise function
-     (function (d, s, id) {
-         var js, fjs = d.getElementsByTagName(s)[0];
-         js = d.createElement(s);
-         js.id = id;
-         js.src = "https://widgets.moovit.com/wtp/en";
-         fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'moovit-jsw'));
- }
+     (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        var ro = !!d.getElementById(id);
+        js = d.createElement(s); js.id = id;
+        js.src = "https://widgets.moovit.com/ws/C4027C9DA9F96060E0530100007F6287/4070102";
+        fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'moovit-jsw');
 
 
  // Testing of tourism APIs is below this line *******

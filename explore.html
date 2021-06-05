@@ -20,23 +20,51 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>TravelMate</title>
 </head>
+
 <body>
+    <header>
+                <!-- Navbar adapted for use from Bootstrap navbar documentation  -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="index.html">TravelMate</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarToggler">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="explore.html">Explore  <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- end of navbar -->
+
+    </header>
     <!-- Map container -->
-<div id="map"></div>
+    <h3 class="text-center">Explore key features in your current area</h3>
+    <div id="map"></div>
+    
 
 
- <!-- Experiment with the Moovit travel app-->
+    <!-- Experiment with the Moovit travel app-->
     <div class="container-fluid" id="moovit-travel">
         <h3 class="text-center">Need help getting somewhere?</h3>
-        
-        
     </div>
+
     <!-- Moovit travel app end -->
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    
+
     <script
         src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
@@ -46,4 +74,5 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=getLocation&libraries=&v=weekly&libraries=places"
         async></script>
 </body>
+
 </html>

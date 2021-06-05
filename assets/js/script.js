@@ -80,6 +80,7 @@ function findRestaurants(latitude, longitude) {
             });
 
     service = new google.maps.places.PlacesService(map);
+    var diningSection = document.getElementById("dining-info");
     service.nearbySearch(restaurant, callback);
     service.nearbySearch(churches, churchSearch);
     service.nearbySearch(bars, barSearch);

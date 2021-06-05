@@ -32,9 +32,8 @@
                 <!-- Navbar adapted for use from Bootstrap navbar documentation  -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="index.html">TravelMate</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -45,9 +44,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="explore.html">Explore</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Transport</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact Us</a>
@@ -61,31 +57,35 @@
                     <h1 class="text-center d-block" id="call-to-action">At TravelMate we're always ready for your next
                         holiday. Are
                         you?</h1>
-                    <a class="btn btn-outline-success" href="#search-destination" role="button" id="call-to-action-button">Explore Destinations!</a>
+                    <a class="btn btn-outline-success" href="#search-destination" role="button"
+                        id="call-to-action-button">Explore Destinations!</a>
                 </div>
             </div>
 
         </div>
-        <!-- Search box for searching travel destination -->
-        <div class="input-group mb-3 container">
-            <input id="address" type="text" class="form-control" placeholder="Please enter a location"
-                aria-label="Recipient's username" aria-describedby="basic-addon2">
-        </div>
+
 
     </header>
-
-    <h4 class="text-center" id="search-destination">Find your next holiday destination using our helpful search features below.</h4>
+<div class="container-fluid" id="search-section">
+    <h4 class="text-center" id="search-destination">Search for a location below to get information about available ameneties and attractions or choose from 
+        one of our top destinations.
+    </h4>
+    <!-- Search box for searching travel destination -->
+    <div class="input-group mb-3 container">
+        <input id="address" type="text" class="form-control" placeholder="Please enter a location"
+            aria-label="Recipient's username" aria-describedby="basic-addon2">
+    </div>
     <!--Buttons for choosing locations-->
     <div id="search-buttons-container">
         <span>
-            <button class="btn btn-primary location-button" id="france">France</button>
-            <button class="btn btn-primary location-button" id="italy">Italy</button>
-            <button class="btn btn-primary location-button" id="spain">Spain</button>
-            <button class="btn btn-primary location-button" id="germany">Germany</button>
-            <button class="btn btn-primary location-button" id="england">England</button>
-            <button class="btn btn-primary location-button" id="restaurants">Restaurants</button>
+            <button class="btn btn-outline-secondary location-button" id="france">Paris</button>
+            <button class="btn btn-outline-secondary location-button" id="italy">London</button>
+            <button class="btn btn-outline-secondary location-button" id="spain">Rome</button>
+            <button class="btn btn-outline-secondary location-button" id="germany">New York</button>
+            <button class="btn btn-outline-secondary location-button" id="england">Dublin</button>
         </span>
     </div>
+</div>
     <!--Container for embedded Google Maps-->
 
 
@@ -98,7 +98,6 @@
     <div id="location-information" class="container-fluid text-center">
         <h3>Here is some information about the location you've selected.</h3>
         <ul class="nav nav-tabs">
-            <li class="active home-tab"><a data-toggle="tab" href="#home">Home</a></li>
 
             <li class="menu-tab"><a data-toggle="tab" href="#churches">Churches</a></li>
             <li class="menu-tab"><a data-toggle="tab" href="#bars">Bars & Pubs</a></li>
@@ -109,27 +108,46 @@
         <div class="tab-content">
             <div id="churches" class="tab-pane fade">
                 <h3>Churches</h3>
-                <div id="churches-info"></div>
+                <div id="churches-info">
+                    <p>Please search for a place to see Churches in the area.</p>
+                </div>
             </div>
             <div id="bars" class="tab-pane fade">
-                <h3>Bars &Pubs</h3>
-                <div id="bars-info"></div>
+                <h3>Bars & Pubs</h3>
+                <div id="bars-info">
+                    <p>Please search for a place to see Bars in the area.</p>
+                </div>
             </div>
             <div id="poi" class="tab-pane fade">
                 <h3>Points of Interest</h3>
-                <div id="poi-info"></div>
+                <div id="poi-info">
+                    <p>Please search for a place to see Points of Interest in the area.</p>
+                </div>
             </div>
             <div id="eating" class="tab-pane fade">
                 <h3>Restaurants</h3>
-                <div id="dining-info"></div>
+                <div id="dining-info">
+                    <p>Please search for a place to see Restaurants in the area.</p>
+                </div>
             </div>
         </div>
     </div>
     <div id="location-photos" class="text-center">
         <h3>Location photos beneath this section</h3>
     </div>
+    <div class="row" id="enquiry-contact-div">
+        <div class="col-sm-12 text-center" id="enquiry-section">
+            <h4>Visit our Explore page to see things in your area</h4>
+            <button class="btn btn-outline-secondary page-nav-button">Explore!</button>
+        </div>
+        <div class="col-sm-12 text-center" id="contact-section">
+            <h4>vist our Contact page to enquire about holiday packages</h4>
+            <button class="btn btn-outline-secondary page-nav-button">Enquire</button>
+        </div>
+    </div>
+    
 
-   
+
 
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"
