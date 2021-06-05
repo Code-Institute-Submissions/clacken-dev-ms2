@@ -36,20 +36,115 @@
     })(document, 'script', 'moovit-jsw');
 
 
- // Testing of tourism APIs is below this line *******
- function findNearby(latitude, longitude) {
-     const settings = {
-         "async": true,
-         "crossDomain": true,
-         "url": `https://opentripmap-places-v1.p.rapidapi.com/en/places/radius?lat=${latitude}&lon=${longitude}&radius=500`,
-         "method": "GET",
-         "headers": {
-             "x-rapidapi-key": "fe33473186msh890ac52503a61f8p135579jsn39564cd53330",
-             "x-rapidapi-host": "opentripmap-places-v1.p.rapidapi.com"
-         }
-     };
+function findNearby(latitude, longitude) {
 
-     $.ajax(settings).done(function (response) {
-         console.log(response);
-     });
- }
+    var position = {
+        lat: latitude,
+        lng: longitude
+    };
+
+    var cars = {
+        location: position,
+        radius: '1000',
+        type: ['car_rental']
+    }
+
+    var churches = {
+        location: position,
+        radius: '1000',
+        type: ['church']
+    }
+
+    var bars = {
+        location: position,
+        radius: '1000',
+        type: ['bar']
+    }
+
+    var poi = {
+        location: position,
+        radius: '5000',
+        type: ['point_of_interest']
+    }
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: {
+            lat: latitude,
+            lng: longitude
+        },
+    });
+
+    new google.maps.Marker({
+                map: map,
+                position: {lat: latitude, lng: longitude},
+            });
+
+    service = new google.maps.places.PlacesService(map);
+    var diningSection = document.getElementById("dining-info");
+    service.nearbySearch(cars, callback);
+    service.nearbySearch(churches, churchSearch);
+    service.nearbySearch(bars, barSearch);
+    service.nearbySearch(poi, poiSearch);
+
+    function callback(results, status) {
+        document.getElementById("car-info").innerHTML = "";
+        var returnedNames = [];
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                
+                //console.log(results[i].name);
+                returnedNames.push(results[i].name);
+                
+                
+                $("#car-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+            }
+        }
+}
+
+    function churchSearch(results, status) {
+        document.getElementById("churches-info").innerHTML = "";
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                
+                $("#churches-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+            }
+        }
+    }
+
+    function barSearch(results, status) {
+        document.getElementById("bars-info").innerHTML = "";
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                
+                //console.log(results[i].name);
+                
+                $("#bars-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+            }
+        }
+    }
+
+    function poiSearch(results, status) {
+        document.getElementById("poi-info").innerHTML = "";
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                
+                //console.log(results[i].name);
+                $("#poi-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+            }
+        }
+    }
+};
+
+ //Function to create the Moovit map, taken from Moovit documentation
+ (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://widgets.moovit.com/wtp/en";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'moovit-jsw'));

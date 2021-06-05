@@ -5,24 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/sandstone/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>TravelMate</title>
+    <!--Icon downloaded from https://icon-icons.com/download/134840/ICO/512/-->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 </head>
 
 <body>
+
+
     <header>
+
+        <div class="container-fluid" id="contact-hero-image">
+
+            <div id="hero-overlay" class="text-center">
                 <!-- Navbar adapted for use from Bootstrap navbar documentation  -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="index.html">TravelMate</a>
@@ -30,14 +32,14 @@
                         aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse" id="navbarToggler">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link" href="index.html">Home</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="explore.html">Explore  <span class="sr-only">(current)</span></a>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="explore.html">Explore <span
+                                        class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact Us</a>
@@ -46,25 +48,70 @@
                     </div>
                 </nav>
                 <!-- end of navbar -->
+                <h3 class="text-center" id="explore-tagline">Explore key features in your current area</h3>
+            </div>
+        </div>
 
     </header>
     <!-- Map container -->
-    <h3 class="text-center">Explore key features in your current area</h3>
-    <div id="map"></div>
-    
 
+    <div id="map"></div>
+    <hr>
+    <div id="location-information" class="container-fluid text-center">
+        <h5>Click through the tabs below for information about your current location</h5>
+        <ul class="nav nav-tabs">
+
+            <li class="menu-tab"><a data-toggle="tab" href="#churches">Churches</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#bars">Bars & Pubs</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#poi">Points of Interest</a></li>
+            <li class="menu-tab"><a data-toggle="tab" href="#car-rental">Car Rental</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="churches" class="tab-pane fade">
+                <h3 class="text-uppercase tab-title">Churches</h3>
+                <div id="churches-info">
+                    <p>Please search for a place to see Churches in the area.</p>
+                </div>
+            </div>
+            <div id="bars" class="tab-pane fade">
+                <h3 class="text-uppercase tab-title">Bars & Pubs</h3>
+                <div id="bars-info">
+                    <p>Please search for a place to see Bars in the area.</p>
+                </div>
+            </div>
+            <div id="poi" class="tab-pane fade">
+                <h3 class="text-uppercase tab-title">Points of Interest</h3>
+                <div id="poi-info">
+                    <p>Please search for a place to see Points of Interest in the area.</p>
+                </div>
+            </div>
+            <div id="car-rental" class="tab-pane fade">
+                <h3 class="text-uppercase tab-title">Car Rental</h3>
+                <div id="car-info">
+                    <p>Please search for a place to see Restaurants in the area.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Experiment with the Moovit travel app-->
     <div class="container-fluid" id="moovit-travel">
-        <h3 class="text-center">Need help getting somewhere?</h3>
-    </div>
+        <h3 class="text-center">Need transport information for your chosen location?</h3>
+        <p class="text-center">This travel finder experience works best on desktop version but you can click 'Continue
+            to mobile site' to use it on mobile.</p>
 
-    <!-- Moovit travel app end -->
+
+        <div class="mv-wtp" data-metro="" data-lang="en" data-from="" data-from-lat-long="" data-to=""
+            data-to-lat-long="" id="moovit-interface">
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script
         src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
@@ -72,7 +119,13 @@
 
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=getLocation&libraries=&v=weekly&libraries=places"
-        async></script>
+        async>
+    </script>
+    <footer>
+        <div class="container-fluid" id="footer-div">
+            <p>ClackenDev 2021</p>
+        </div>
+    </footer>
 </body>
 
 </html>

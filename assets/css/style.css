@@ -1,14 +1,14 @@
-body{
+body {
     padding: 0;
     margin: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /*************************  Index.html  ***/
-#hero-image{
+#hero-image {
     background: url(../images/hero-image.jpg);
     width: 100%;
     height: 95vh;
@@ -17,39 +17,43 @@ html {
     margin: 0;
 }
 
-#logo{
+#logo {
     font-size: 30px;
     color: white;
     font-weight: 400;
     float: left;
-    
+
 }
 
-#hero-image, a, a:hover, a:focus, a:active{
+#hero-image,
+a,
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
 }
 
-#hero-overlay{
+#hero-overlay {
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    color: white; 
+    color: white;
     background-color: rgba(0, 0, 0, 0.4);
     position: relative;
     top: 0%;
 }
 
-.nav-item{
+.nav-item {
     float: right;
 }
 
-#call-to-action-components{
+#call-to-action-components {
     clear: both;
     position: relative;
     top: 30%;
 }
 
-#call-to-action-button{
+#call-to-action-button {
     border-radius: 20px;
     border-width: 3px;
     width: 40%;
@@ -63,28 +67,28 @@ html {
     border-color: #04ADBF;
 }
 
-.page-nav-button{
+.page-nav-button {
     border-radius: 20px;
     width: 25%;
 }
 
-.menu-tab{
+.menu-tab {
     padding-left: 15px;
 }
 
-.menu-tab > a{
+.menu-tab>a {
     text-decoration: none;
     color: grey;
 }
 
-.home-tab a{
+.home-tab a {
     color: grey;
 }
 
 
 
-/*************** check if this exists */
-.information-item{
+/*************** These are the paragraphs created in script.js for the information that is returned from the place search */
+.information-item {
     padding: 15px;
     margin-top: 1.5rem;
     display: inline-block;
@@ -96,52 +100,62 @@ html {
 
 /******************** Sections below map and info with buttons to redirect to Explore and Contact pages **/
 
-#location-information{
+#location-information {
     padding-right: 0;
     padding-left: 0;
+    margin-top: 2rem;
 }
 
-.tab-content{
+#location-information h5 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tab-content {
     background-color: #027373;
     color: #F2E3D5;
     margin-top: 3rem;
 }
 
-.tab-title{
+.tab-title {
     padding-bottom: 3em;
 }
 
-#enquiry-contact-div{
+#enquiry-contact-div {
+    margin-top: 0;
     margin-left: 0;
     margin-right: 0;
-    padding-bottom: 3rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
     background-color: #F2E3D5;
     color: #027373;
 }
 
-#enquiry-section{
+#enquiry-section {
     margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
 }
 
-#contact-section{
+#contact-section {
     margin-top: 2.5rem;
+    padding-top: 2.5rem;
 }
 
 
 
-#location-photos{
+#location-photos {
     margin: 3rem 0;
 }
 
 /******************** Footer section ****/
-#footer-div{
-    padding:0;
-    margin:0;
+#footer-div {
+    padding: 0;
+    margin: 0;
     background-color: rgba(0, 0, 0, 0.6);
     height: 80px;
 }
 
-#footer-div p{
+#footer-div p {
     padding-top: 1.5em;
     text-align: center;
     color: black;
@@ -150,7 +164,7 @@ html {
 
 /********************* contact.html     ****/
 
-#contact-hero-image{
+#contact-hero-image {
     background: url(../images/hero-image.jpg);
     width: 100%;
     height: 35vh;
@@ -159,74 +173,112 @@ html {
     margin: 0;
 }
 
-#contact-form-personal-info{
-margin: 4rem 0;
+#contact-tagline {
+    margin: 0 auto;
+    margin-top: 3rem;
+    width: 65%;
 }
 
-#contact-form-container{
+#contact-form-personal-info {
+    margin: 4rem 0;
+}
+
+#contact-form-container {
     margin-bottom: 3rem;
+    width: 60%;
 }
 
-#footer-div{
+#footer-div {
     position: relative;
     bottom: 0;
 }
 
-.form-submitted{
+.form-submitted {
     height: 80vh;
 }
 
-.submission-confirmation{
+.submission-confirmation {
     padding-top: 10rem;
 }
 
+/********************************************* Explore.html  *******/
+
+#moovit-travel {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 1.5rem;
+    background-color: #F2E3D5;
+    height: 500px;
+    margin-bottom: 5rem;
+}
+
+#explore-tagline {
+    padding-top: 1.5em;
+}
 
 /*------------------------------------------- Media Queries for responsive mobile styling*/
 @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  #jumbotron {
-    width: 98%;
-    
-  }
 
-  #jumbotron h1{
-      font-size: 25px;
-  }
+    /* For mobile phones: */
+    #jumbotron {
+        width: 98%;
 
-  #logo{
-      font-size: 1.3rem;
-      margin-left: 5px;
-  }
+    }
 
-  #logo{
-      clear: both;
-  }
+    #jumbotron h1 {
+        font-size: 25px;
+    }
+
+    #logo {
+        font-size: 1.3rem;
+        margin-left: 5px;
+    }
+
+    #logo {
+        clear: both;
+    }
+
+    .btn {
+        width: 40%;
+    }
+
+    #contact-form-container {
+        margin-bottom: 3rem;
+        width: 85%;
+    }
+
+    #contact-tagline {
+        margin: 0 auto;
+        margin-top: 1rem;
+        width: 90%;
+    }
+
+    #moovit-travel {
+    margin-bottom: 10rem;
 }
 
-#search-section{
+.information-item {
+    text-align: center;
+    width: 50%;
+    
+}
+
+}
+
+#search-section {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
 #map {
-  height: 500px;
-}
-
-#second-map{
     height: 500px;
 }
 
-#moovit-travel{
-    padding-top: 100px;
-    padding-bottom: 100px;
-    height: 800px;
-}
-
-#moovit-interface{
+#moovit-interface {
     height: 100%;
 }
 
-#search-buttons-container{
+#search-buttons-container {
     padding: 20px 20px;
     text-align: center;
 }

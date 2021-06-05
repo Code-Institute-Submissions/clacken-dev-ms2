@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--Icon downloaded from https://icon-icons.com/download/134840/ICO/512/-->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>TravelMate</title>
@@ -22,11 +19,7 @@
 
 <body>
     <header>
-
-
         <div class="container-fluid" id="hero-image">
-
-
             <div id="hero-overlay" class="text-center">
 
                 <!-- Navbar adapted for use from Bootstrap navbar documentation  -->
@@ -36,7 +29,6 @@
                         aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse" id="navbarToggler">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
@@ -54,38 +46,34 @@
                 <!-- end of navbar -->
 
                 <div id="call-to-action-components">
-                    <h1 class="text-center d-block" id="call-to-action">At TravelMate we're always ready for your next
-                        holiday. Are
-                        you?</h1>
+                    <h1 class="d-block" id="call-to-action">
+                        With TravelMate your next holiday destination is just around the corner.
+                    </h1>
                     <a class="btn btn-outline-light" href="#search-destination" role="button"
                         id="call-to-action-button">SEARCH NOW</a>
                 </div>
             </div>
-
         </div>
-
-
     </header>
-<div class="container-fluid" id="search-section">
-    <h4 class="text-center" id="search-destination">Search for a location below to get information about available ameneties and attractions or choose from 
-        one of our top destinations.
-    </h4>
-    <!-- Search box for searching travel destination -->
-    <div class="input-group mb-3 container">
-        <input id="address" type="text" class="form-control" placeholder="Please enter a location"
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="container-fluid text-center" id="search-section">
+        <h4 class="text-center" id="search-destination">Search for a location below to find out what it has to offer as
+            a holiday destination.</h4>
+        <p>Start typing in the search box and choose a location from the list. Information about your chosen location is
+            displayed in the tabs below the map.</p>
+        <!-- Search box for searching travel destination -->
+        <div class="input-group mb-3 container">
+            <input id="address" type="text" class="form-control" placeholder="Please enter a location"
+                aria-label="location search" aria-describedby="basic-addon2">
+        </div>
+        <!--Buttons for choosing locations-->
+        <p>Or choose from some of our most popular holiday destinations</p>
+        <button class ="btn btn-outline-secondary" id="paris">Paris</button>
+        <button class ="btn btn-outline-secondary" id="rome">Rome</button>
+        <button class ="btn btn-outline-secondary" id="dublin">Dublin</button>
+        <button class ="btn btn-outline-secondary" id="madrid">Madrid</button>
+        <button class ="btn btn-outline-secondary" id="new-york">New York</button>
+        <button class ="btn btn-outline-secondary" id="london">London</button>
     </div>
-    <!--Buttons for choosing locations-->
-    <div id="search-buttons-container">
-        <span>
-            <button class="btn btn-outline-secondary location-button" id="france">Paris</button>
-            <button class="btn btn-outline-secondary location-button" id="italy">London</button>
-            <button class="btn btn-outline-secondary location-button" id="spain">Rome</button>
-            <button class="btn btn-outline-secondary location-button" id="germany">New York</button>
-            <button class="btn btn-outline-secondary location-button" id="england">Dublin</button>
-        </span>
-    </div>
-</div>
     <!--Container for embedded Google Maps-->
 
 
@@ -96,7 +84,7 @@
     <div id="map" class="container"></div>
     <!-- A Bootstrap navbar with tabs above to toggle through information-->
     <div id="location-information" class="container-fluid text-center">
-        <h3>Here is some information about the location you've selected.</h3>
+        <h5>Click through the tabs below for information about this location</h5>
         <ul class="nav nav-tabs">
 
             <li class="menu-tab"><a data-toggle="tab" href="#churches">Churches</a></li>
@@ -135,19 +123,18 @@
     <div class="row" id="enquiry-contact-div">
         <div class="col-sm-12 text-center" id="enquiry-section">
             <h4>If you want to see location information for your current location then check out our Explore page!</h4>
-            <h5>This page is also very useful when on your holidays and you want to find things to do</h5>
-            <button class="btn btn-outline-secondary page-nav-button">Explore!</button>
+            <p>This page is also very useful when on your holidays and you want to find things to do</p>
+            <a class="btn btn-outline-secondary page-nav-button" href="explore.html" role="button">EXPLORE NOW</a>
         </div>
         <div class="col-sm-12 text-center" id="contact-section">
-            <h4>vist our Contact page to enquire about holiday packages</h4>
-            <button class="btn btn-outline-secondary page-nav-button">Enquire</button>
+            <h4>With travel plans and packages to suit everybody, TravelMate is the first stop on the journey to your
+                dream vacation. </h4>
+            <p> Feel free to get in touch with us to discuss your chosen holiday destination and we will be more than
+                happy to talk about all the available options.</p>
+            <a class="btn btn-outline-secondary page-nav-button" href="contact.html" role="button">CONTACT US</a>
         </div>
     </div>
-    
 
-
-
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -160,8 +147,6 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=initAutoComplete&libraries=&v=weekly&libraries=places"
         async></script>
-
-    <script></script>
     <footer>
         <div class="container-fluid" id="footer-div">
             <p>ClackenDev 2021</p>
