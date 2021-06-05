@@ -1,8 +1,3 @@
-//const apiKey = AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw;
-
-//const currentLocation;
-
-
 const france = {
     lat: 48.864716,
     lng: 2.349014
@@ -24,18 +19,59 @@ const england = {
     lng: 2.4333
 };
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: {
-            lat: -34.397,
-            lng: 150.644
-        },
-        zoom: 8,
-    });
-    console.log("The initMap function is finished executing");
+//Google places autocomplete 
+
+let autocomplete;
+
+function initAutoComplete() {
+    initMap();
+    autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('address'), {
+
+            fields: ['geometry', 'address_components', 'formatted_address', 'name']
+        });
+
+    autocomplete.addListener('place_changed', onPlaceChanged);
 }
 
-function findRestaurants(latitude, longitude) {
+function onPlaceChanged() {
+
+    var place = autocomplete.getPlace();
+
+    if (!place.geometry) {
+        //User did not select a prediction; reset the input field
+        document.getElementById('address').placeholder =
+            'enter a place';
+    } else {
+        //Display details about the valid place
+
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 7,
+            center: {
+                lat: -34.397,
+                lng: 150.644
+            },
+        });
+
+        var locationLatitude = place.geometry.location.lat();
+        var locationLongitude = place.geometry.location.lng();
+        findNearby(locationLatitude, locationLongitude);
+    }
+}
+
+
+function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 3,
+        center: {
+            lat: 50.24324,
+            lng: 19.30265
+        },
+    });
+}
+
+function findNearby(latitude, longitude) {
 
     var position = {
         lat: latitude,
@@ -88,14 +124,16 @@ function findRestaurants(latitude, longitude) {
 
     function callback(results, status) {
         document.getElementById("dining-info").innerHTML = "";
+        var returnedNames = [];
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
                 
-                console.log(results[i].name);
+                //console.log(results[i].name);
+                returnedNames.push(results[i].name);
                 
                 
-                document.getElementById("dining-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
+                $("#dining-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
 }
@@ -106,11 +144,7 @@ function findRestaurants(latitude, longitude) {
             for (var i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
                 
-                console.log(results[i].name);
-
-               
-                
-                document.getElementById("churches-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
+                $("#churches-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
     }
@@ -121,9 +155,9 @@ function findRestaurants(latitude, longitude) {
             for (var i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
                 
-                console.log(results[i].name);
+                //console.log(results[i].name);
                 
-                document.getElementById("bars-info").innerHTML += "<span class='information-item'>" + results[i].name + "</div>";
+                $("#bars-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
     }
@@ -134,9 +168,8 @@ function findRestaurants(latitude, longitude) {
             for (var i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
                 
-                console.log(results[i].name);
-                
-                document.getElementById("poi-info").innerHTML += "<span class='information-item'>" + results[i].name + "</span>";
+                //console.log(results[i].name);
+                $("#poi-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
     }
@@ -178,122 +211,4 @@ $("#england").click(function () {
     });
 });
 
-//Google places autocomplete 
 
-let autocomplete;
-
-function initAutoComplete() {
-    initMap();
-    console.log('autocomplete function was called');
-    autocomplete = new google.maps.places.Autocomplete(
-        document.getElementById('address'), {
-
-            fields: ['geometry', 'address_components', 'formatted_address', 'name']
-        });
-
-    autocomplete.addListener('place_changed', onPlaceChanged);
-}
-
-function onPlaceChanged() {
-
-    var place = autocomplete.getPlace();
-
-    if (!place.geometry) {
-        //User did not select a prediction; reset the input field
-        document.getElementById('address').placeholder =
-            'enter a place';
-    } else {
-        //Display details about the valid place
-
-
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 7,
-            center: {
-                lat: -34.397,
-                lng: 150.644
-            },
-        });
-
-        var locationLatitude = place.geometry.location.lat();
-        var locationLongitude = place.geometry.location.lng();
-        findRestaurants(locationLatitude, locationLongitude);
-
-        console.log("The latitude of " + place.name + " is " + locationLatitude + ". The longitude is " + locationLongitude);
-        console.log(place.formatted_address);
-
-        //geocodeAddress(map, place.formatted_address);
-
-
-
-        // *** test to see if geometry location can be retrieved using Places library ***
-        // var currentPlace = google.maps.places.PlaceGeometry();
-        // console.log(currentPlace);
-    }
-}
-
-
-
-function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 3,
-        center: {
-            lat: 50.24324,
-            lng: 19.30265
-        },
-    });
-}
-
-// Geocoding function for finding locations typed by the user
-function geocodeAddress(resultsMap, address) {
-    //const address = $("#address").val(); //document.getElementById("address").value;
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({
-        address: address
-    }, (results, status) => {
-        if (status === "OK") {
-            resultsMap.setCenter(results[0].geometry.location);
-            console.log(results[0]);
-            //console.log("The id of this location is " + results[0].place_id);
-            geocodePlaceId(results[0].place_id);
-
-            new google.maps.Marker({
-                map: resultsMap,
-                position: results[0].geometry.location,
-            });
-        } else {
-            alert("Geocode was not successful for the following reason: " + status);
-        }
-    });
-}
-
-//experiment of trying to get lat and long for a place ID
-
-function geocodePlaceId(placeId) {
-    console.log("geocode place id function was called");
-    const geocoder = new google.maps.Geocoder();
-
-
-    geocoder.geocode({
-        placeId: placeId
-    }, (results, status) => {
-        if (status === "OK") {
-            if (results[0]) {
-                console.log(results[0].geometry);
-                console.log("the coordinates (lat) for the provided place id are " + results[0].geometry.location);
-
-                var locationCoordinates = results[0].geometry.location;
-                // formattddLocationCoordinates = locationCoordinates.split(',');
-                console.log(typeof results[0].geometry.location);
-
-                //for (var item of locationCoordinates){
-                //    console.log(item);
-                //}
-                console.log(results[0].geometry.location.lat);
-                //findRestaurants(results[0].geometry.location);
-            }
-        } else {
-            console.log("Geocoder failed due to: " + status);
-        }
-    });
-
-}

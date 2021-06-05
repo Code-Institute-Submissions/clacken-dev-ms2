@@ -66,18 +66,18 @@
             vacation.
         </h4>
 
-        <form onsubmit="return sendMail(this);" method="POST">
+        <form onsubmit="return sendMail(this);" id="contact-form">
             <div class="form-group" id="contact-form-personal-info">
                 <label for="fname">First Name</label>
                 <input type="text" class="form-control" id="fname" placeholder="First Name">
                 <label for="lname">Last Name</label>
                 <input type="text" class="form-control" id="lname" placeholder="Last Name">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
             </div>
             <div class="form-group">
-                <label for="travel-type">Preferred Travel Method</label>
-                <select class="form-control" id="travel-type">
+                <label for="travel">Preferred Travel Method</label>
+                <select class="form-control" id="travel">
                     <option>Plane</option>
                     <option>Ferry</option>
                     <option>Train</option>
@@ -85,11 +85,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="text-area">Tell us about your preferred travel location and vacation activities</label>
-                <textarea class="form-control" id="text-area" rows="3"></textarea>
+                <label for="message">Tell us about your preferred travel location and vacation activities</label>
+                <textarea class="form-control" id="message" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-outline-primary">Submit</button>
         </form>
+        
     </div>
 
     <footer>
