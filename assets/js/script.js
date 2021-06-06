@@ -104,7 +104,7 @@ function findNearby(latitude, longitude) {
     var poi = {
         location: position,
         radius: '5000',
-        type: ['point_of_interest']
+        type: ['tourist_attraction']
     }
 
     const map = new google.maps.Map(document.getElementById("map"), {
