@@ -1,59 +1,178 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## TravelMate Website
+----
 
-Welcome clacken-dev,
+View the live project here (link to Github pages)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+This is the main website for TravelMate, a company designed to help holiday makers choose a destination
+for their next holiday and provide them with useful information about their location when on holiday.
 
-## Gitpod Reminders
+# User Experience (UX)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* ## User Stories
+    * First Time Visitor Goals
+        * As a First Time Visitor to the TravelMate site I want to be informed about the available functionality of the site and how
+        it can help in choosing a holiday destination
+        * As a First Time Visitor I want to be able to easily navigate through the page, interact with it and have it respond how I 
+        expect it should respond.
+        * As a First Time User I want to experience the local exploration feature and see if it will be useful to me for future holidays or day trips.
+    
+    * Returning Visitor Goals
+        * As a Returning Visitor: 
+        * As a Returning Visitor:
+        * As a Returning Visitor:
 
-`python3 -m http.server`
+    * Frequent User Goals
+        * As a Frequent User I want to:
+        * As a Frequent User I want to:
+        * As a Frequent User I want to:
+        * As a Frequent User I want to:
 
-A blue button should appear to click: _Make Public_,
+* ## Design 
+    
+    * Colour Scheme
 
-Another blue button should appear to click: _Open Browser_.
+    * Typography
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+    * Imagery
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+* ## Wireframes
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The original concept was fluid and gradually took shape after the project inception and first example of a wireframe. 
+The wireframe for the index page initially had a different layout and as the project grew and different options were tried 
+these were updated to better fit the improved design. The original wireframe for the home page is below, followed by the updated
+wireframes for the current design of the site.
 
-To log into the Heroku toolbelt CLI:
+* Home Page Wireframe - view (add link to github file)
+* Explore Page Wireframe - view (add link to github file)
+* Contact Page Wireframe - view (add link to github file )
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+# Features 
+ * Responsive on all device sizes
+ * Interactive elements
+ * Integrated APIs for maps, nearby searches and transport
+ * Feedback on real-time location of User
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+ # Technologies Used
 
-## Updates Since The Instructional Video
+ ## Languages Used
+  * HTML5
+  * CSS3
+  * Javascript 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Frameworks, Libraries & Programs Used
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+1. Bootstrap (insert version)
+   * Bootstrap was used to aid with the design and layout of the site and to assist with responsiveness across screen sized.
+2. jQuery: 
+   * jQuery was used in testing of different APIs for making requests and also for requesting and setting element content of the DOM.
+3. Google Fonts:
+   * Google Fonts was used to import: name fonts imported and where they were used.
+4. Git
+   * Git was used for version control of the project from its inception by using Gitpod terminal for making commits and pushing to the GitHub repository.
+5. GitHub:
+   * GitHub was used to store the code repository as it was updated in Gitpod and pushed from Git.
+6. Balsamiq:
+   * Balsamiq was used to create the wireframes(add link to wireframes ? ) during the design process of the project.
+7. Photoshop:
+   * Photoshop was used to create the mockup images of the website and for resizing the hero image of the site.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+# Testing
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+The W3C Markup Validator and W3C CSS Validator services were used for every page of the website to ensure there were no
+syntax errors in the code. Jigsaw (???) was used to validate the Javascript used in the project to check for errors in syntax, variable declaration, use and logic.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+  * W3C Markup Validator - Results (link to this)
+  * W3C CSS Validator - Results (link to this)
+  * The Javascript Validator results here also
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Testing User Stories from User Experience (UX) Section
+Here I go through all the user stories and how every wish of the user was tested to see if it worked as they wanted, without errors
+Beef this up a lot and talk extensively about the testing which was carried out. Talk about every issue and how it was resolved to give the 
+ultimate user experience. 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+ * ### First Time Visitor Goals 
+   1.  As a First Time visitor I want to navigate easily and understand the site purpose
+      * Clean layout, nicely labelled navbar lets them find their way around easily and intuitively
+      * The big hero image immediately gives the idea of a holiday destination website with the big 'Search Now' button
+      * another reason this goal is achieved for the user
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+   2. As a First Time Visitor: 2nd reason
+      * This is issue is addressed by:
+      * doing this and this:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+   3. As a First Time Visitor: 3rd reason
+      * and the solutions which were used to ensure this was a nice experience for the user
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* ### Returning Visitor Goals 
+  1. As a Returning Visitor I want to find new information about destinations
+     * The user sees all the new information
+     * The user can search and see updated attractions
+     * The user can see if anything is new or changed or if they want to go to a different place
 
----
+  2. As a Returning Visitor I want to be able to use the Explore Section
+     * The returning visitor can see necessary information about their current location
+     * They can use this app while on holidays to see new attractions and things in their areas
+     * They can search for things to do at home or abroad and work out what to do on their holidays and what to visitor
 
-Happy coding!
+* ### Frequent User Goals
+  1. As a Frequent User I want to explore the local attractions and search for future holiday destinations
+     * They search for new destination and get the information they're looking for
+     * They search the Explore page and see what's in their vicinity
+     * They hit up the contact page and get a call from a sales rep about holiday packages to their desired location
+
+  2. As a Frequent User I want to check where my car is parked 
+     * Check the maps
+     * See where the car parks are
+     * Find the correct one and collect car
+
+## Further Testing
+ 
+ * Browsers which the site was tested on
+ * platforms used, mobile or tablet or desktop etc, android and iOS and what versions
+ * What other people helped test and run the site and what further tests were done personally
+
+
+## Known Bugs
+
+   * Mention known bugs here or glitches or anything that messes up with styling, javascript functionality or any other Features
+
+# Deployment 
+
+## Github Pages
+
+This project was deployed as a live project to GitHub Pages using the following steps: 
+
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+
+## Forking the GitHub repository
+
+By creating a fork of the GitHub repository for this project it's possible to create a copy of the original repository on your own GitHub account which
+can be used to view and/or make changes without having an effect on the original GitHub repository. This is done using the following steps:
+
+1. 
+2. 
+3. 
+4. 
+
+## Making a Local Clone 
+Steps for making a local clone on your machine are as follows: 
+
+# Credits 
+
+## Code
+
+## Content
+
+## Media
+
+## Acknowledgements

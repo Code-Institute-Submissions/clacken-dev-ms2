@@ -1,3 +1,6 @@
+ //The getLocation function was adapted from W3Schools documentation on obtaining user location. It checks if the browser supports geolocation and then proceeds appropriately.
+ //The location as returned from the geolocation is used to draw a new Google Map and this then calls the same findNearby function from script.js and searches nearby for attractions
+
  function getLocation() {
      if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(showPosition)
@@ -26,125 +29,109 @@
      findNearby(position.coords.latitude, position.coords.longitude);
  }
 
-     //Moovit transport app initialise function
-     (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        var ro = !!d.getElementById(id);
-        js = d.createElement(s); js.id = id;
-        js.src = "https://widgets.moovit.com/ws/C4027C9DA9F96060E0530100007F6287/4070102";
-        fjs.parentNode.insertBefore(js, fjs);
-    })(document, 'script', 'moovit-jsw');
+ //this function takes two arguments for location and uses them for the nearby search and for the radius location to search. A new map and marker is drawn once this function is called and then it invokes
+ // Google places functionality to implement the services for Nearby Search. 
+ function findNearby(latitude, longitude) {
 
+     var position = {
+         lat: latitude,
+         lng: longitude
+     };
 
-function findNearby(latitude, longitude) {
+     var cars = {
+         location: position,
+         radius: '1000',
+         type: ['car_rental']
+     }
 
-    var position = {
-        lat: latitude,
-        lng: longitude
-    };
+     var churches = {
+         location: position,
+         radius: '1000',
+         type: ['church']
+     }
 
-    var cars = {
-        location: position,
-        radius: '1000',
-        type: ['car_rental']
-    }
+     var bars = {
+         location: position,
+         radius: '1000',
+         type: ['bar']
+     }
 
-    var churches = {
-        location: position,
-        radius: '1000',
-        type: ['church']
-    }
+     var poi = {
+         location: position,
+         radius: '5000',
+         type: ['tourist_attraction']
+     }
 
-    var bars = {
-        location: position,
-        radius: '1000',
-        type: ['bar']
-    }
+     const map = new google.maps.Map(document.getElementById("map"), {
+         zoom: 12,
+         center: {
+             lat: latitude,
+             lng: longitude
+         },
+     });
 
-    var poi = {
-        location: position,
-        radius: '5000',
-        type: ['tourist_attraction']
-    }
+     new google.maps.Marker({
+         map: map,
+         position: {
+             lat: latitude,
+             lng: longitude
+         },
+     });
 
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
-        center: {
-            lat: latitude,
-            lng: longitude
-        },
-    });
+     service = new google.maps.places.PlacesService(map);
+     var diningSection = document.getElementById("dining-info");
+     service.nearbySearch(cars, callback);
+     service.nearbySearch(churches, churchSearch);
+     service.nearbySearch(bars, barSearch);
+     service.nearbySearch(poi, poiSearch);
 
-    new google.maps.Marker({
-                map: map,
-                position: {lat: latitude, lng: longitude},
-            });
+     //The following functions are very similar but differ in the DOM location they are appending to. Best practice may be to amend into one function and pass DOM location as an argument
+     function callback(results, status) {
+         document.getElementById("car-info").innerHTML = "";
+         var returnedNames = [];
+         if (status == google.maps.places.PlacesServiceStatus.OK) {
+             for (var i = 0; i < results.length; i++) {
+                 $("#car-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+             }
+         }
+     }
 
-    service = new google.maps.places.PlacesService(map);
-    var diningSection = document.getElementById("dining-info");
-    service.nearbySearch(cars, callback);
-    service.nearbySearch(churches, churchSearch);
-    service.nearbySearch(bars, barSearch);
-    service.nearbySearch(poi, poiSearch);
+     function churchSearch(results, status) {
+         document.getElementById("churches-info").innerHTML = "";
+         if (status == google.maps.places.PlacesServiceStatus.OK) {
+             for (var i = 0; i < results.length; i++) {
+                 $("#churches-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+             }
+         }
+     }
 
-    function callback(results, status) {
-        document.getElementById("car-info").innerHTML = "";
-        var returnedNames = [];
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
-                //console.log(results[i].name);
-                returnedNames.push(results[i].name);
-                
-                
-                $("#car-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
-            }
-        }
-}
+     function barSearch(results, status) {
+         document.getElementById("bars-info").innerHTML = "";
+         if (status == google.maps.places.PlacesServiceStatus.OK) {
+             for (var i = 0; i < results.length; i++) {
+                 $("#bars-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+             }
+         }
+     }
 
-    function churchSearch(results, status) {
-        document.getElementById("churches-info").innerHTML = "";
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
-                $("#churches-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
-            }
-        }
-    }
+     function poiSearch(results, status) {
+         document.getElementById("poi-info").innerHTML = "";
+         if (status == google.maps.places.PlacesServiceStatus.OK) {
+             for (var i = 0; i < results.length; i++) {
+                 $("#poi-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
+             }
+         }
+     }
+ };
 
-    function barSearch(results, status) {
-        document.getElementById("bars-info").innerHTML = "";
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
-                //console.log(results[i].name);
-                
-                $("#bars-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
-            }
-        }
-    }
-
-    function poiSearch(results, status) {
-        document.getElementById("poi-info").innerHTML = "";
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
-                //console.log(results[i].name);
-                $("#poi-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
-            }
-        }
-    }
-};
-
- //Function to create the Moovit map, taken from Moovit documentation
+ //This function was taken from Moovit Transport documentation and embeds a widget in the page which can be used by the user to enter destinations to search for travel options
  (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://widgets.moovit.com/wtp/en";
-                fjs.parentNode.insertBefore(js, fjs);
+               var js, fjs = d.getElementsByTagName(s)[0];
+              js = d.createElement(s);
+               js.id = id;
+               js.src = "https://widgets.moovit.com/wtp/en";
+               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'moovit-jsw'));
+
+ 
+ 

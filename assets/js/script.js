@@ -1,3 +1,4 @@
+// Constants which are declared here are for hard-coded locations, used with buttons on Home page
 const paris = {
     lat: 48.864716,
     lng: 2.349014
@@ -24,7 +25,9 @@ const london = {
     lng: -0.118092
 };
 
-//Google places autocomplete 
+//Google places autocomplete function adapted from Places documentation for this project. The function adds the Google Autocomplete feature 
+//to an input field which then suggests places to the user as they type. This function then passes the coordinates of the chosen location to the findNearby function.
+
 
 let autocomplete;
 
@@ -59,13 +62,14 @@ function onPlaceChanged() {
             },
         });
 
+        //Google Place's requests return objects which can be dissected to determine the coordinates and many other details. Here the coordinates are taken and passed to the findNearby function
         var locationLatitude = place.geometry.location.lat();
         var locationLongitude = place.geometry.location.lng();
         findNearby(locationLatitude, locationLongitude);
     }
 }
 
-
+//This function is called at the beginning to draw a map when the page initially loads with a zoomed out view of most of Europe
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 3,
@@ -76,6 +80,8 @@ function initMap() {
     });
 }
 
+// This function takes two arguments for location from the selection made by the user. A request is made to Google's "nearby search" feature based on this location.
+//Request parameters are location, radius and type of thing to look for. The results are given to a callback function which is then used to display this on the DOM for the user.
 function findNearby(latitude, longitude) {
 
     var position = {
@@ -127,17 +133,14 @@ function findNearby(latitude, longitude) {
     service.nearbySearch(bars, barSearch);
     service.nearbySearch(poi, poiSearch);
 
+
+    //The following functions are almost identical except that they display the information in different places on the DOM. Best practice would be to reuse the function
+    // however because it is a callback from the nearbySearch function it proved difficult to pass the DOM destination as an extra parameter.
+    // The DOM location is set to blank so that every new search only gives those results. Status is checked to see if Google returns an 'OK' before iterating over the returned object array
     function callback(results, status) {
         document.getElementById("dining-info").innerHTML = "";
-        var returnedNames = [];
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
-                //console.log(results[i].name);
-                returnedNames.push(results[i].name);
-                
-                
                 $("#dining-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
@@ -147,8 +150,6 @@ function findNearby(latitude, longitude) {
         document.getElementById("churches-info").innerHTML = "";
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
                 $("#churches-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
@@ -158,10 +159,6 @@ function findNearby(latitude, longitude) {
         document.getElementById("bars-info").innerHTML = "";
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
-                //console.log(results[i].name);
-                
                 $("#bars-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
@@ -171,9 +168,6 @@ function findNearby(latitude, longitude) {
         document.getElementById("poi-info").innerHTML = "";
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                //createMarker(results[i]);
-                
-                //console.log(results[i].name);
                 $("#poi-info").append(`<p class ='information-item'> ${results[i].name} </p>`);
             }
         }
@@ -187,6 +181,10 @@ $('#address').keypress(function(event){
         alert('Please select a location from the dropdown list.');  
     }
 });
+
+
+//The following functions call the findNearby function and pass it the hard-coded locations declared globally at the top of the script. This lets the user click a location
+// button and get all the information without having to manually search it 
 
 $("#paris").click(function(){
     findNearby(paris.lat, paris.lng);

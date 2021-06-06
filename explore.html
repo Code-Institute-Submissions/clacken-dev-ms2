@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>TravelMate</title>
     <!--Icon downloaded from https://icon-icons.com/download/134840/ICO/512/-->
@@ -18,12 +15,8 @@
 </head>
 
 <body>
-
-
     <header>
-
         <div class="container-fluid" id="contact-hero-image">
-
             <div id="hero-overlay" class="text-center">
                 <!-- Navbar adapted for use from Bootstrap navbar documentation  -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,19 +47,16 @@
 
     </header>
     <!-- Map container -->
-
     <div id="map"></div>
     <hr>
     <div id="location-information" class="container-fluid text-center">
         <h5>Click through the tabs below for information about your current location</h5>
         <ul class="nav nav-tabs">
-
             <li class="menu-tab"><a data-toggle="tab" href="#churches">Churches</a></li>
             <li class="menu-tab"><a data-toggle="tab" href="#bars">Bars & Pubs</a></li>
             <li class="menu-tab"><a data-toggle="tab" href="#poi">Points of Interest</a></li>
             <li class="menu-tab"><a data-toggle="tab" href="#car-rental">Car Rental</a></li>
         </ul>
-
         <div class="tab-content">
             <div id="churches" class="tab-pane fade">
                 <h3 class="text-uppercase tab-title">Churches</h3>
@@ -95,18 +85,16 @@
         </div>
     </div>
 
-    <!-- Experiment with the Moovit travel app-->
+    <!--Moovit travel app-->
     <div class="container-fluid" id="moovit-travel">
         <h3 class="text-center">Need transport information for your chosen location?</h3>
         <p class="text-center">This travel finder experience works best on desktop version but you can click 'Continue
             to mobile site' to use it on mobile.</p>
 
-
         <div class="mv-wtp" data-metro="" data-lang="en" data-from="" data-from-lat-long="" data-to=""
             data-to-lat-long="" id="moovit-interface">
         </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -116,7 +104,6 @@
         src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script src="assets/js/explore.js"></script>
-
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcnmYkEEWSVtN4OKvL4M_K0cZcX_1kUZw&callback=getLocation&libraries=&v=weekly&libraries=places"
         async>

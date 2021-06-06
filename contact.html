@@ -5,21 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--Icon downloaded from https://icon-icons.com/download/134840/ICO/512/-->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <title>TravelMate</title>
-
+    <!-- EmailJS CDN added here for contact form email sending-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
@@ -30,11 +22,7 @@
 
 <body>
     <header>
-
-
         <div class="container-fluid" id="contact-hero-image">
-
-
             <div id="hero-overlay" class="text-center">
 
                 <!-- Navbar adapted from Bootstrap navbar documentation  -->
@@ -44,7 +32,6 @@
                         aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse" id="navbarToggler">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item">
@@ -61,12 +48,13 @@
                     </div>
                 </nav>
                 <!-- end of navbar -->
-                <h4 class="text-center" id="contact-tagline">Our team is ready to help you with enquires about travel packages and locations.
-            Fill in the contact form below and we will be in touch shortly</h4>
+
+                <h4 class="text-center" id="contact-tagline">Our team is ready to help you with enquires about travel
+                    packages and locations.
+                    Fill in the contact form below and we will be in touch shortly</h4>
     </header>
     <div class="container-fluid text-center" id="contact-form-container">
-        
-
+        <!-- Submit button for this form calls sendMail function from sendEmail.js and sends the form contents as an argument-->
         <form onsubmit="return sendMail(this);" id="contact-form">
             <div class="form-group" id="contact-form-personal-info">
                 <label for="fname">First Name</label>
@@ -91,15 +79,12 @@
             </div>
             <button type="submit" class="btn btn-outline-primary">Submit</button>
         </form>
-        
     </div>
-
     <footer>
         <div class="container-fluid" id="footer-div">
             <p>ClackenDev 2021</p>
         </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

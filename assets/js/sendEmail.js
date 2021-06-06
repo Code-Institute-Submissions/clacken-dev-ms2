@@ -1,3 +1,6 @@
+//This function is called by clicking the submit button in the contact form. It passes the form details as parameters to be sent in an email. There is no page refresh after sending
+// so after sending the page is cleared and a success message is displayed to the user if the service returns a "Success" status. If not an error is displayed and the user is asked to try again
+
 function sendMail(contactForm){
     emailjs.send("service_kzd89jn", "template_8rzpgkv", {
     "first_name" : contactForm.fname.value,
