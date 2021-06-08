@@ -93,8 +93,8 @@ With the integration of the Google Places API the functionality outgrew this lim
 The W3C Markup Validator and W3C CSS Validator services were used for every page of the website to ensure there were no
 syntax errors in the code. 
 
-  * W3C Markup Validator - Results (link to this)
-  * W3C CSS Validator - Results (link to this)
+  * W3C Markup Validator - [Results](https://github.com/clacken-dev/ms2/blob/master/documentation/html-valid-ms2.png)
+  * W3C CSS Validator - [Results](https://github.com/clacken-dev/ms2/blob/master/documentation/css-valid-ms2.png)
   * [BeautifyTools](https://beautifytools.com/javascript-validator.php) was used to check over Javascript and look for issues and errors - Jshint service was unavailable
 
 ## Testing User Stories from User Experience (UX) Section
