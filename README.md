@@ -83,6 +83,10 @@ With the integration of the Google Places API the functionality outgrew this lim
    * GitHub was used to store the code repository as it was updated in Gitpod and pushed from Git.
 6. Balsamiq:
    * Balsamiq was used to create the wireframes(add link to wireframes ? ) during the design process of the project.
+7. Google Maps API
+   * The Google Maps Javascript API was used and with it other Google Maps libraries such as Places, Autocomplete, NearbySearch and similar features
+8. Moovit Travel app
+   * The Moovit Travel app was embedded as a widget and customized to suit the site's needs of providing the user with transport options.
 
 # Testing
 
