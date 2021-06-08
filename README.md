@@ -80,11 +80,10 @@ wireframes for the current design of the site.
 # Testing
 
 The W3C Markup Validator and W3C CSS Validator services were used for every page of the website to ensure there were no
-syntax errors in the code. Jigsaw (???) was used to validate the Javascript used in the project to check for errors in syntax, variable declaration, use and logic.
+syntax errors in the code. 
 
   * W3C Markup Validator - Results (link to this)
   * W3C CSS Validator - Results (link to this)
-  * The Javascript Validator results here also
 
 ## Testing User Stories from User Experience (UX) Section
 Here I go through all the user stories and how every wish of the user was tested to see if it worked as they wanted, without errors
