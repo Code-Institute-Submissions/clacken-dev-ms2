@@ -95,6 +95,7 @@ syntax errors in the code.
 
   * W3C Markup Validator - Results (link to this)
   * W3C CSS Validator - Results (link to this)
+  * [BeautifyTools](https://beautifytools.com/javascript-validator.php) was used to check over Javascript and look for issues and errors - Jshint service was unavailable
 
 ## Testing User Stories from User Experience (UX) Section
 Here I go through all the user stories and how every wish of the user was tested to see if it worked as they wanted, without errors
